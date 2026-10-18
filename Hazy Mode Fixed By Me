@@ -1,0 +1,115 @@
+-- STREAMING_CHUNK:Initializing captions and notifications...
+local caption = game.Players.LocalPlayer:WaitForChild("PlayerGui").MainUI.MainFrame.Caption
+caption.TextColor3 = Color3.fromRGB(255, 255, 255)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Hazy Mode Multiplayer Executed!", true)
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+local caption2 = game.Players.LocalPlayer:WaitForChild("PlayerGui").MainUI.MainFrame.Caption
+caption2.TextColor3 = Color3.fromRGB(255, 255, 255)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Hazy Mode Initiated, Mode Fixed by me, Credits To the Original Creator Oof Studio", true)
+-- STREAMING_CHUNK:Configuring anti-simultaneous spawn protection system...
+local lastSpawnTick = 0
+local function safeSpawn(loadstringFunc)
+task.spawn(function()
+-- Ensures entities do not spawn all at once ("de jalón") by enforcing a cooldown between spawns
+while tick() - lastSpawnTick < 20 do
+task.wait(2)
+end
+lastSpawnTick = tick()
+loadstringFunc()
+end)
+end
+-- STREAMING_CHUNK:Configuring Rusher entity spawner...
+-- Foul (Entity 1)
+coroutine.wrap(function()
+while true do
+task.wait(80)
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+task.wait(0)
+safeSpawn(function()
+loadstring(game:HttpGet(""))()
+end)
+end
+end)()
+-- STREAMING_CHUNK:Configuring Breaker entity spawner...
+-- Rusher (Entity 2)
+coroutine.wrap(function()
+while true do
+task.wait(170)
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+task.wait(0)
+safeSpawn(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/gonzalezmarrufoalexandersasuke-commits/Trail-Maniac-Mode/refs/heads/main/Rusher%20Doors"))()
+end)
+end
+end)()
+-- STREAMING_CHUNK:Configuring Trail entity spawner...
+-- Trail (Entity 3)
+coroutine.wrap(function()
+while true do
+task.wait(255)
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+task.wait(0)
+safeSpawn(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/gonzalezmarrufoalexandersasuke-commits/Trail-Maniac-Mode/refs/heads/main/Trail%20Doors"))()
+end)
+end
+end)()
+-- STREAMING_CHUNK:Configuring Ripper entity spawner...
+-- Ripper (Entity 4 - New)
+coroutine.wrap(function()
+while true do
+task.wait(210)
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+task.wait(0)
+safeSpawn(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/gonzalezmarrufoalexandersasuke-commits/Trail-Maniac-Mode/refs/heads/main/Maniac%20Ripper%20Doors"))()
+end)
+end
+end)()
+-- STREAMING_CHUNK:Configuring Rebound entity spawner...
+-- Rebound (Entity 5 - New)
+coroutine.wrap(function()
+while true do
+task.wait(240)
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+task.wait(0)
+safeSpawn(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/gonzalezmarrufoalexandersasuke-commits/Trail-Maniac-Mode/refs/heads/main/Maniac%20Rebound%20Doors"))()
+end)
+end
+end)()
+-- STREAMING_CHUNK:Configuring Rush and Ambush visual modifications...
+coroutine.wrap(function()
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+task.wait(0.1)
+local jumpscare = game.Players.LocalPlayer.PlayerGui.MainUI:FindFirstChild("Jumpscare")
+if jumpscare and jumpscare:FindFirstChild("Jumpscare_Rush") then
+jumpscare.Jumpscare_Rush.ImageLabel.ImageColor3 = Color3.fromRGB(255, 0, 0)
+jumpscare.Jumpscare_Rush.ImageLabelBig.ImageColor3 = Color3.fromRGB(255, 0, 0)
+end
+if game.Workspace:FindFirstChild('AmbushMoving') then
+game.Workspace.AmbushMoving.RushNew.Attachment.ParticleEmitter.Color = ColorSequence.new({
+ColorSequenceKeypoint.new(0, Color3.new(1, 0.305882, 0.305882)),
+ColorSequenceKeypoint.new(0.305882, Color3.new(1, 0.305882, 0.305882)),
+ColorSequenceKeypoint.new(0.305882, Color3.new(1, 0.305882, 0.305882)),
+ColorSequenceKeypoint.new(1, Color3.new(1, 0.305882, 0.305882)),
+})
+end
+if game.Workspace:FindFirstChild('RushMoving') then
+game.Workspace.RushMoving.RushNew.Attachment.BlackTrail.Color = ColorSequence.new({
+ColorSequenceKeypoint.new(0, Color3.new(0.407843, 0, 0)),
+ColorSequenceKeypoint.new(0, Color3.new(0.407843, 0, 0)),
+ColorSequenceKeypoint.new(0.407843, Color3.new(0.407843, 0, 0)),
+ColorSequenceKeypoint.new(0.407843, Color3.new(0.407843, 0, 0)),
+ColorSequenceKeypoint.new(1, Color3.new(0.407843, 0, 0)),
+})
+game.Workspace.RushMoving.RushNew.Attachment.ParticleEmitter.Color = ColorSequence.new({
+ColorSequenceKeypoint.new(0, Color3.new(1, 0, 0)),
+ColorSequenceKeypoint.new(0, Color3.new(1, 0, 0)),
+ColorSequenceKeypoint.new(1, Color3.new(1, 0, 0)),
+})
+game.Workspace.RushMoving.RushNew.PlaySound.PlaybackSpeed = 0.025
+game.Workspace.RushMoving.RushNew.Footsteps.PlaybackSpeed = 0.025
+end
+end)
+end)()
