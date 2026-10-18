@@ -26,7 +26,7 @@ task.wait(80)
 game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
 task.wait(0)
 safeSpawn(function()
-loadstring(game:HttpGet(""))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/gonzalezmarrufoalexandersasuke-commits/Oof-Studio-Fixed-Entities-All-Modes/refs/heads/main/Foul%20Hazy%20Mode"))()
 end)
 end
 end)()
