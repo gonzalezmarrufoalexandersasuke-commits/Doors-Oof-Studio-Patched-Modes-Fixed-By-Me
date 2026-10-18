@@ -31,14 +31,14 @@ end)
 end
 end)()
 -- STREAMING_CHUNK:Configuring Breaker entity spawner...
--- Rusher (Entity 2)
+-- Nightmare Ambush (Entity 2)
 coroutine.wrap(function()
 while true do
 task.wait(170)
 game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
 task.wait(0)
 safeSpawn(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/gonzalezmarrufoalexandersasuke-commits/Trail-Maniac-Mode/refs/heads/main/Rusher%20Doors"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/gonzalezmarrufoalexandersasuke-commits/Oof-Studio-Fixed-Entities-All-Modes/refs/heads/main/Nightmare%20Ambush%20Hazy%20Mode"))()
 end)
 end
 end)()
