@@ -22,7 +22,7 @@ end
 -- Foul (Entity 1)
 coroutine.wrap(function()
 while true do
-task.wait(90)
+task.wait(100)
 game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
 task.wait(0)
 safeSpawn(function()
@@ -34,7 +34,7 @@ end)()
 -- Nightmare Ambush (Entity 2)
 coroutine.wrap(function()
 while true do
-task.wait(190)
+task.wait(210)
 game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
 task.wait(0)
 safeSpawn(function()
@@ -43,14 +43,14 @@ end)
 end
 end)()
 -- STREAMING_CHUNK:Configuring Trail entity spawner...
--- Trail (Entity 3)
+-- Glitched Eyes (Entity 3)
 coroutine.wrap(function()
 while true do
-task.wait(255)
+task.wait(40)
 game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
 task.wait(0)
 safeSpawn(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/gonzalezmarrufoalexandersasuke-commits/Trail-Maniac-Mode/refs/heads/main/Trail%20Doors"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/gonzalezmarrufoalexandersasuke-commits/Oof-Studio-Fixed-Entities-All-Modes/refs/heads/main/Glitched%20Eyes%20Hazy%20Mode"))()
 end)
 end
 end)()
