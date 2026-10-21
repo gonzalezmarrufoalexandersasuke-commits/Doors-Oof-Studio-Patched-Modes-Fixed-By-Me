@@ -22,7 +22,7 @@ end
 -- Foul (Entity 1)
 coroutine.wrap(function()
 while true do
-task.wait(80)
+task.wait(90)
 game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
 task.wait(0)
 safeSpawn(function()
@@ -34,7 +34,7 @@ end)()
 -- Nightmare Ambush (Entity 2)
 coroutine.wrap(function()
 while true do
-task.wait(170)
+task.wait(190)
 game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
 task.wait(0)
 safeSpawn(function()
